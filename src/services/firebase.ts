@@ -1,12 +1,11 @@
-import firestore, { firebase } from '@react-native-firebase/firestore';
-import { DocumentData, addDoc, collection, getAggregateFromServer, getDocs, orderBy, query, sum } from 'firebase/firestore';
+
+import { addDoc, collection, getDocs, orderBy, query, sum } from 'firebase/firestore';
 import { FIREBASE_DB } from '../../FirebaseConfig';
-import auth from '@react-native-firebase/auth';
+
 export const adicionarFiiNaCarteira = async (userId: string, novoFii: any) => {
     try {
         // Adicionar o novo FII à coleção 'carteiras' para o usuário específico
         await addDoc(collection(FIREBASE_DB, `carteiras/${userId}/ativos`), novoFii);
-        console.log('FII adicionado à carteira com sucesso!');
       } catch (error) {
         console.error('Erro ao adicionar FII à carteira: ', error);
       }

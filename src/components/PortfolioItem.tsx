@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { TouchableOpacity, View, Text } from "react-native";
-import idv from "../constants/Idv";
+import { View, Text } from "react-native";
 import { alphaVantageGlobalQuote } from "../services/alphaVantage";
 
 interface ItemCarteiraProps {

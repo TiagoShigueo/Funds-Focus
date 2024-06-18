@@ -6,14 +6,11 @@ import {
   KeyboardAvoidingView,
   Image,
   TouchableOpacity,
-  Alert,
-  Button,
 } from "react-native";
 import React, { useState } from "react";
 import { signIn, signUp } from "../services/authService";
 import Idv from "../constants/Idv";
 import { useNavigation } from "@react-navigation/native";
-import Register from "./Register";
 
 const Login = () => {
   const [email, setEmail] = useState("");

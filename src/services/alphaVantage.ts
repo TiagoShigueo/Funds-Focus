@@ -1,9 +1,6 @@
 import axios from 'axios';
 
 const API_KEY = "KM3PTTHZNI45GUWJ";
-// const API_KEY = "YU938S42CFRSI15H";
-// const API_KEY = 'UJIB1PEBJ5TD09N5';
-// const API_KEY = '372O2TQK33SL9DR2';
 
 export const alphaVantageGlobalQuote = async (symbol: string) => {
   try {

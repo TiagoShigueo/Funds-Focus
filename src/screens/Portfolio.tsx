@@ -14,7 +14,6 @@ import {
 import { getUserId } from "../utils/User";
 import { DocumentData } from "firebase/firestore";
 import PortfolioItem from "../components/PortfolioItem";
-import { readRemoteFile } from "react-native-csv";
 import { Dropdown } from "react-native-element-dropdown";
 import Idv from "../constants/Idv";
 import { fiis } from "../data/fiisB3";
@@ -36,7 +35,6 @@ const Portfolio = () => {
         label: item["Codigo"],
         value: item["Codigo"],
       }));
-      console.log("entrou");
       setItems(convertedData);
     } catch (error) {
       const fetchFiis = async () => {

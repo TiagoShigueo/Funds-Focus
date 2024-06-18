@@ -1,7 +1,6 @@
 import React from "react";
-import { TouchableOpacity, View, Text, Pressable } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import idv from "../constants/Idv";
-// import { useNavigation } from "expo-router";
 
 type Stock = {
   "Global Quote": {
@@ -45,9 +44,7 @@ const StockItem = ({ stockData }: StockListItem) => {
         <Text
           style={{
             color:
-              /*Perccentual positivo não está ficando verde. Acho q é pq está entrando como string*/ stockData[
-                "Global Quote"
-              ]["10. change percent"] > 0
+              stockData["Global Quote"]["10. change percent"] > 0
                 ? "green"
                 : "red",
           }}

@@ -25,7 +25,6 @@ export const getUserId = async () => {
             userId = await AsyncStorage.getItem('@userId');
         }
         if (userId !== null) {
-            // console.log('Id do usuário recuperado: ', userId);
             return userId;
         } else {
             console.log('Nenhum Id do usuário encontrado no armazenamento');

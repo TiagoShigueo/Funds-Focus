@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Linking } from "react-native";
+import { View, Text, Linking } from "react-native";
 import Idv from "../constants/Idv";
 
 interface NewsItemProps {

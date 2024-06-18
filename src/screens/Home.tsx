@@ -4,15 +4,11 @@ import {
   Text,
   FlatList,
   ActivityIndicator,
-  Button,
   ScrollView,
   TouchableOpacity,
-  SafeAreaView,
 } from "react-native";
 import StockItem from "../components/StockItem";
-import Dividends from "../components/Dividends";
 import { alphaVantageGlobalQuote } from "../services/alphaVantage";
-
 import { fetchNews } from "../services/newsService";
 import News from "../components/News";
 import Idv from "../constants/Idv";

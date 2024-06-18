@@ -2,7 +2,6 @@ import { Alert, Platform } from "react-native";
 import { FIREBASE_AUTH } from "../../FirebaseConfig";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
 import { setUserId } from "../utils/User";
 
 const cleanUserId = async () => {
@@ -12,7 +11,6 @@ const cleanUserId = async () => {
         } else {
         await AsyncStorage.removeItem('userId')
         }
-        console.log('Id do usuário removido do armazenamento');
     } catch(error) {
         console.error('Erro ao limpar o ID do usuário: ', error);
     }
@@ -26,8 +24,6 @@ export const logout = async () => {
         console.error('Erro ao fazer logout: ', error);
     }
 };
-
-/* arrumar daqui para baixo */
 
 const auth = FIREBASE_AUTH;
 
@@ -61,8 +57,6 @@ export const signIn = async (email: string, password: string) => {
         email,
         password
       );
-      console.log(response);
-      // alert("Check your emails!");
     } catch (error: any) {
       console.error(error.code);
       if (error.code === "auth/invalid-email"){
