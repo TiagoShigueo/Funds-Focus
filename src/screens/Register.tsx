@@ -10,18 +10,11 @@ import {
 import React, { useState } from "react";
 import { signIn, signUp } from "../services/authService";
 import Idv from "../constants/Idv";
-import { useNavigation } from "@react-navigation/native";
-import Register from "./Register";
 
-const Login = () => {
+const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState("");
-  const navigation = useNavigation();
-
-  const navigateToScreenRegister = () => {
-    navigation.navigate("Register");
-  };
   return (
     <View style={Idv.container}>
       <View style={Idv.centralizedContainer}>
@@ -53,13 +46,7 @@ const Login = () => {
             <>
               <TouchableOpacity
                 style={Idv.button}
-                onPress={() => signIn(email, password)}
-              >
-                <Text style={Idv.buttonTextWhite}>Login</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={Idv.button}
-                onPress={() => navigateToScreenRegister()}
+                onPress={() => signUp(email, password)}
               >
                 <Text style={Idv.buttonTextWhite}>Criar conta</Text>
               </TouchableOpacity>
@@ -71,4 +58,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

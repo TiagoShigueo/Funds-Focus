@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import HomeScreen from "./screens/Home";
 import Portfolio from "./screens/Portfolio";
 import { SafeAreaView } from "react-native";
+import Register from "./screens/Register";
 
 const Stack = createNativeStackNavigator();
 const InsideStack = createNativeStackNavigator();
@@ -54,16 +55,25 @@ export default function App() {
               component={InsideLayout}
               options={{
                 headerShown: false,
-              }} /* Some com o Header onde ficava aquele Título da página */
+              }}
             />
           ) : (
-            <Stack.Screen
-              name="Login"
-              component={Login}
-              options={{
-                headerShown: false,
-              }} /* Some com o Header onde ficava aquele Título da página */
-            />
+            <>
+              <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{
+                  headerShown: false,
+                }}
+              />
+              <Stack.Screen
+                name="Register"
+                component={Register}
+                options={{
+                  headerShown: false,
+                }}
+              />
+            </>
           )}
         </Stack.Navigator>
       </NavigationContainer>

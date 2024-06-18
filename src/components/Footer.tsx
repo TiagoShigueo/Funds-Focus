@@ -14,7 +14,6 @@ const Footer = () => {
   const navigation = useNavigation<FooterNavigationProp>();
 
   const navigateToScreen = (screenName: keyof RootStackParamList) => {
-    // Defina o tipo do parâmetro
     navigation.navigate(screenName);
   };
 
