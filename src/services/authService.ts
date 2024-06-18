@@ -42,6 +42,8 @@ export const signIn = async (email: string, password: string) => {
   } catch (error: any) {
     if (error.code === "auth/invalid-email"){
       Alert.alert("Erro ao realizar login", "E-mail ou senha inválido");
+    } else if (error.code === "auth/invalid-credential"){
+      Alert.alert("Erro ao realizar login", "E-mail ou senha inválido");
     } else {
       Alert.alert("Erro desconhecido de login", error.message);
     }
