@@ -6,6 +6,8 @@ import {
   KeyboardAvoidingView,
   Image,
   TouchableOpacity,
+  Alert,
+  Button,
 } from "react-native";
 import React, { useState } from "react";
 import { signIn, signUp } from "../services/authService";
@@ -22,6 +24,7 @@ const Login = () => {
   const navigateToScreenRegister = () => {
     navigation.navigate("Register");
   };
+
   return (
     <View style={Idv.container}>
       <View style={Idv.centralizedContainer}>

@@ -65,8 +65,7 @@ const Portfolio = () => {
 
   const adicionarFii = async () => {
     if (!codigoFii || !quantidadeFii || !valorFii) {
-      Alert.alert("Erro!", "Por favor preencha todos os campos.");
-      console.log("Erro! Por favor preencha todos os campos.");
+      Alert.alert("Campo vazio", "Favor preencher os campos");
       return;
     }
     try {

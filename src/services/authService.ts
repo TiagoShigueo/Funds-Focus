@@ -1,4 +1,4 @@
-import { Platform } from "react-native";
+import { Alert, Platform } from "react-native";
 import { FIREBASE_AUTH } from "../../FirebaseConfig";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
@@ -32,18 +32,27 @@ export const logout = async () => {
 const auth = FIREBASE_AUTH;
 
 export const signIn = async (email: string, password: string) => {
-    // setLoading(true);
-    try {
-      const response = await signInWithEmailAndPassword(auth, email, password);
-      setUserId(response.user.uid);
-    } catch (error: any) {
-      console.error('Erro ao realizar Login: ', error);
-      alert("Sign in failed: " + error.message);
+  if (!email || !password){
+    Alert.alert("Campos vazios" ,"Favor preencher os campos e-mail e senha corretamente");
+    return;
+  }
+  try {
+    const response = await signInWithEmailAndPassword(auth, email, password);
+    setUserId(response.user.uid);
+  } catch (error: any) {
+    if (error.code === "auth/invalid-email"){
+      Alert.alert("Erro ao realizar login", "E-mail ou senha inválido");
+    } else {
+      Alert.alert("Erro desconhecido de login", error.message);
     }
-  };
+  } 
+};
 
   export const signUp = async (email: string, password: string) => {
-    // setLoading(true);
+    if (!email || !password){
+      Alert.alert("Campos vazios" ,"Favor preencher os campos e-mail e senha corretamente");
+      return;
+    }
     try {
       const response = await createUserWithEmailAndPassword(
         auth,
@@ -53,7 +62,13 @@ export const signIn = async (email: string, password: string) => {
       console.log(response);
       // alert("Check your emails!");
     } catch (error: any) {
-      console.error('Erro ao realizar o cadastro: ', error);
-      // alert("Sign in failed: " + error.message);
+      console.error(error.code);
+      if (error.code === "auth/invalid-email"){
+        Alert.alert("Erro ao cadastrar uma nova conta", "E-mail ou senha inválido");
+      } else if (error.code === "auth/weak-password"){
+        Alert.alert("Senha fraca", "A senha deve possuir no mínimo 6 caracteres");
+      } else if (error.code === "auth/email-already-in-use") {
+        Alert.alert("E-mail em uso", "O e-mail já foi registrado, favor informar outro e-mail");
+      }
     } 
   };
